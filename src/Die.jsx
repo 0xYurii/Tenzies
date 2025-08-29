@@ -1,9 +1,5 @@
-
-
-export default function Die(props){
-    return(
-        <>
-        <button> {props.value} </button>
-        </>
+export default function Die(props) {
+    return (
+        <button>{props.value}</button>
     )
 }
