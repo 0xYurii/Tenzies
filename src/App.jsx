@@ -16,8 +16,12 @@ export default function App() {
     }
     
     function rollDice() {
-        setDice(generateAllNewDice())
+        setDice(prev=>prev.map(el=>({
+            ...el,
+            value:el.isHeld? el.value:Math.ceil(Math.random() * 6)
+        })))
     }
+
     function hold(Id){
         setDice(prev=>prev.map(el=>({
             ...el,
