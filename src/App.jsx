@@ -2,15 +2,6 @@ import { useState } from "react"
 import { nanoid } from 'nanoid';
 import Die from "./Die"
 
-    /**
-     * Challenge: Add conditional styling to the Die component
-     * so that if it's held (isHeld === true), its background color
-     * changes to a light green (#59E391)
-     * 
-     * Remember: currently the Die component has no way of knowing
-     * if it's "held" or not.
-     */
-
 export default function App() {
     const [dice, setDice] = useState(generateAllNewDice())
     
@@ -23,6 +14,7 @@ export default function App() {
               id:nanoid()
             }))
     }
+
     
     function rollDice() {
         setDice(generateAllNewDice())
@@ -30,8 +22,9 @@ export default function App() {
     
     const diceElements = dice.map(dieObj => <Die 
             key={dieObj.id} 
+            id={dieObj.id}
             value={dieObj.value} 
-            isHeld={dieObj.isHeld} 
+            isHeld={dieObj.isHeld}
         />)
     
     return (
