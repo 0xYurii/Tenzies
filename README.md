@@ -2,7 +2,7 @@
 
 A fun and interactive Tenzies game built with React and Vite. The goal is to get all ten dice to show the same number.
 
-![Tenzies Game Screenshot](./src/assets/screenshot.png)
+![Tenzies Game Screenshot](./src/assets/image.png)
 
 ## ✨ Features
 
