@@ -4,14 +4,10 @@ import Die from "./Die";
 import Confetti from 'react-confetti'
 
 export default function App() {
-    const [dice, setDice] = useState(generateAllNewDice())
+    const [dice, setDice] = useState(()=> generateAllNewDice())
 
     let gameWon=dice.every(el=>el.isHeld) &&
         dice.every(el=>el.value===dice[0].value)
-    /**
-     * Challenge:
-     * Make the confetti drop when the game is won! 🎉🎊
-     */
 
     function generateAllNewDice() {
         return new Array(10)
@@ -21,6 +17,9 @@ export default function App() {
               isHeld:false,
               id:nanoid()
             }))
+    }
+    function newGame(){
+        setDice(generateAllNewDice())
     }
     
     function rollDice() {
@@ -51,7 +50,7 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            <button className="roll-dice" onClick={rollDice}>
+            <button className="roll-dice" onClick={gameWon?newGame:rollDice}>
                 {gameWon?"New Game":"Roll"}
             </button>
             {gameWon&& <Confetti/>}
